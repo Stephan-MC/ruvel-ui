@@ -1,0 +1,13 @@
+[package]
+name = "ruvel_ui"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "ruvel_ui"
+path = "main.rs"
+
+[dependencies]
+async-trait = "0.1.92"
+ruvel = { path = "../ruvel-framework" }
+tokio = { version = "1.54.1", features = ["full"] }
