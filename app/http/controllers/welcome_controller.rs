@@ -1,11 +1,11 @@
-use ruvel::http::{Controller, Request, Responsable, Response};
+use ruvel::http::{Controller, Request, Responsable};
 
 #[derive(Default)]
 pub struct WelcomeController;
 
 impl Controller for WelcomeController {
-    fn index(&self, _request: Request) -> impl Responsable {
-        Response::ok().html("<mark>Welcome</mark> to Ruvel")
+    async fn index(&self, _request: Request) -> impl Responsable {
+        "Welcome to ruvel"
     }
 }
 
