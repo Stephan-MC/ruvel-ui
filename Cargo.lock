@@ -132,6 +132,8 @@ dependencies = [
 [[package]]
 name = "ruvel"
 version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "635b9f19778032d1c49f5dad7a085f72274de1a67657a5dcd574f815dd2e7f40"
 dependencies = [
  "async-trait",
  "matchit",

@@ -8,5 +8,5 @@ pub async fn create_app() -> Result<(), Box<dyn std::error::Error>> {
         .await;
 
     // 2. Start server
-    app.listen(8000).await
+    app.listen(3000).await
 }
