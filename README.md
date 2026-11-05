@@ -1,187 +1,210 @@
-# Ruvel UI
+# Ruvel
 
-[![Rust](https://img.shields.io/badge/rust-2024%20edition-orange.svg)](https://www.rust-lang.org/)
+<p align="center">
+  <strong>The developer experience of Laravel. The uncompromising performance of Rust.</strong>
+</p>
 
-> **This framework is not ready for production.**
->
-> This application runs on Ruvel `0.1.x`, an early preview of a Laravel-style framework for Rust. Routing, middleware, the service container, and controllers can be tried locally. Authentication, validation, sessions, a real database layer, TLS, and several builder hooks are missing or panic when called. Do not deploy this application.
-
-Ruvel UI is the application skeleton for [Ruvel](https://github.com/Stephan-MC/ruvel). The layout follows a Laravel project: `bootstrap/`, `app/http/controllers/`, `routes/`, `config/`, and `database/`. The framework crate (`ruvel` `0.1.4`) supplies the HTTP server, router, middleware pipeline, service container, and controller trait. This repository is the application that wires them together.
+<p align="center">
+  <a href="https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/"><img src="https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/badge.svg" alt="Web Frameworks Benchmark Rank" /></a>
+  <a href="https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/"><img src="https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/badge-language.svg" alt="Web Frameworks Benchmark Rust Rank" /></a>
+  <a href="https://www.rust-lang.org/"><img src="https://img.shields.io/badge/rust-2024%20edition-orange.svg" alt="Rust 2024 Edition" /></a>
+  <a href="https://crates.io/crates/ruvel"><img src="https://img.shields.io/badge/crates.io-v0.1.4-blue.svg" alt="Crates.io" /></a>
+</p>
 
 ---
 
-## Installation
+## 💡 Philosophy & Developer Experience (DX) Orientation
 
-Clone the `origin` remote of this repository, then build it with Cargo. You need Rust 1.85 or newer (the 2024 edition) and Cargo.
+Modern web development has long faced a trade-off: **developer happiness vs. raw performance**.
+
+For years, developers had to choose between the productivity, expressiveness, and joyful developer ergonomics of high-level MVC frameworks, or the lower-level, complex boilerplate required to achieve blazing speeds and memory efficiency.
+
+**Ruvel bridges this divide.**
+
+Built on Rust (2024 edition) and Tokio, Ruvel is designed for developers who love clean architecture, predictable structure, and elegant code, but refuse to compromise on throughput, latency, or concurrency.
+
+- **Intuitive Architecture:** An immediately recognizable structure (`app/`, `bootstrap/`, `routes/`, `config/`, `database/`) that scales gracefully from prototypes to enterprise workloads.
+- **Expressive Routing & Middleware:** Define routes fluently, group endpoints, and pass requests through clean, composable middleware layers using the classic "onion" pattern.
+- **Zero-Boilerplate Controllers:** Simple, readable action methods with automatic response formatting for text, HTML, and JSON.
+- **Service Container & Providers:** Two-phase bootstrapping (`register` and `boot`) with lock-free service resolution and singleton management.
+- **Fearless Concurrency & Safety:** Guaranteed memory safety, thread safety, and zero garbage collection overhead without sacrificing expressiveness.
+
+---
+
+## ⚡ Performance Metrics
+
+Ruvel delivers elite, bare-metal throughput and sub-millisecond latencies under extreme concurrency.
+
+According to verified results from [The Benchmarker / Web Frameworks Benchmark](https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/):
+
+| Metric | Concurrency 64 | Concurrency 256 | Concurrency 512 |
+|:---|:---:|:---:|:---:|
+| **Requests / Second** | **229,028** | **208,547** | **206,753** |
+| **P50 Latency** | **0.28 ms** | **1.24 ms** | **2.41 ms** |
+| **P90 Latency** | 0.39 ms | 1.75 ms | 3.52 ms |
+| **P99 Latency** | **0.47 ms** | **2.08 ms** | **4.74 ms** |
+| **P99.999 Latency** | 0.74 ms | 2.91 ms | 7.03 ms |
+| **HTTP Errors** | **0** | **0** | **0** |
+| **Timeouts / Socket Errors** | **0** | **0** | **0** |
+
+### Benchmark Highlights
+
+- 🏆 **Ranked #16 out of 392 frameworks** globally across all programming languages.
+- 🦀 **Ranked #4 out of 33 frameworks** in the Rust ecosystem.
+- Over **3.4 million requests** handled per test run with **0 dropped connections** and **0 error responses**.
+
+[![Web Frameworks Benchmark](https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/badge.svg)](https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/)
+[![Web Frameworks Benchmark](https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/badge-language.svg)](https://web-frameworks-benchmark.vercel.app/frameworks/rust/ruvel/)
+
+---
+
+## ❤️ Tribute to Laravel
+
+> *"Laravel has always been about developer happiness, aesthetic syntax, and the pursuit of elegant architecture."*
+
+Ruvel exists in humble homage to the **[Laravel](https://laravel.com)** framework and its creator, **Taylor Otwell**, along with the entire Laravel community. 
+
+Laravel revolutionized the web ecosystem by proving that framework design should be human-centric. It elevated conventions over configuration, brought poetry to application structure, and demonstrated that writing backend code should be a joyful, creative craft.
+
+Ruvel carries that torch into the systems programming landscape. It adopts the architectural conventions, clean mental models, and developer-first design patterns popularized by Laravel, bringing them to life in the high-performance async Rust ecosystem.
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Rust 1.85+ (Rust 2024 edition)
+- Cargo
+
+### Installation & Run
 
 ```bash
-git clone git@github.com:Stephan-MC/ruvel-ui.git
-cd ruvel-ui
-cargo run
-```
-
-`origin` is `git@github.com:Stephan-MC/ruvel-ui`. The same repository over HTTPS:
-
-```bash
+# Clone the repository
 git clone https://github.com/Stephan-MC/ruvel-ui.git
 cd ruvel-ui
+
+# Run in development mode
 cargo run
 ```
 
-Cargo downloads `ruvel` `0.1.4` and the other dependencies from crates.io. The default branch on `origin` is `main`.
-
-The server listens on `0.0.0.0:3000`. Override either side with the environment:
+For maximum performance benchmarks, build in release mode:
 
 ```bash
-HOST=127.0.0.1 PORT=8080 cargo run
+cargo run --release
 ```
 
-| Path | Response |
-| --- | --- |
-| `GET /` | `Welcome to Ruvel Again` |
-| `GET /welcome` | `Hello World from Ruvel` |
+### Environment Configuration
+
+The server defaults to `0.0.0.0:3000`. You can configure the host and port via environment variables:
+
+```bash
+HOST=127.0.0.1 PORT=8080 cargo run --release
+```
+
+| Route | Handler | Description |
+|:---|:---|:---|
+| `GET /` | `WelcomeController@welcome` | Default welcome response |
+| `GET /welcome` | Inline Route Handler | Greeting endpoint |
 
 ---
 
-## Application layout
+## 📂 Application Structure
+
+The repository follows a clean, modular structure mirroring standard MVC conventions:
 
 ```text
-main.rs                         # Tokio entrypoint; calls bootstrap::app()
-bootstrap/app.rs                # Application::configure, routes, listen
-app/http/controllers/           # WelcomeController
-app/providers/                  # Service providers (empty; registration is commented out)
-routes/web.rs                   # Web routes
-routes/api.rs                   # API routes (empty)
-config/                         # Application config (empty)
-database/migrations/            # Migrations (empty)
-database/seeders/               # Seeders (empty)
-resources/                      # Views and other assets (empty)
+├── main.rs                     # Tokio asynchronous runtime entrypoint
+├── bootstrap/
+│   └── app.rs                  # Application configuration & route bootstrapping
+├── app/
+│   ├── http/
+│   │   └── controllers/        # Resource & action controllers (e.g. WelcomeController)
+│   └── providers/              # Service providers (lifecycle bindings & boot routines)
+├── routes/
+│   ├── web.rs                  # Web browser routes & middleware groups
+│   └── api.rs                  # API routes
+├── config/                     # Application & environment configuration
+├── database/
+│   ├── migrations/             # Schema definitions and migrations
+│   └── seeders/                # Database seeders
+└── resources/                  # Templates, views, and static assets
 ```
 
-`bootstrap/app.rs` builds the application the way Laravel's `bootstrap/app.php` does:
+### 1. Bootstrapping (`bootstrap/app.rs`)
+
+Configuring the application is fluent and straightforward:
 
 ```rust
-let app = Application::configure("")
-    .with_routing(web::routes)
-    .create();
+use crate::routes::web;
+use ruvel::foundation::Application;
+
+pub async fn create_app() -> Application {
+    Application::configure("")
+        .with_routing(web::routes)
+        .create()
+}
 ```
 
-`routes/web.rs` registers the two routes above. `WelcomeController` implements the resource `Controller` trait and also exposes `welcome`, which is the action mounted on `/`.
+### 2. Defining Routes (`routes/web.rs`)
+
+Define HTTP verb handlers with support for path parameters, grouping, and middleware:
+
+```rust
+use ruvel::routing::Router;
+use crate::app::http::controllers::WelcomeController;
+
+pub fn routes(router: &mut Router) {
+    let controller = WelcomeController::new();
+
+    router.get("/", move |req| controller.welcome(req));
+    router.get("/welcome", |_| async { "Hello World from Ruvel" });
+}
+```
+
+### 3. Middleware Pipeline
+
+Middleware wraps request execution using the classic onion model:
+
+```rust
+app.with_middleware(|stack| {
+    stack.append(LoggingMiddleware);
+    stack.alias("auth", AuthMiddleware);
+});
+```
+
+### 4. Service Container & Dependency Injection
+
+Ruvel includes a type-keyed dependency injection container:
+
+```rust
+// Register a singleton
+container.singleton(|| Arc::new(DatabaseService::new()));
+
+// Resolve anywhere
+let db = container.make::<DatabaseService>();
+```
 
 ---
 
-## Framework features in use
+## 🗺️ Roadmap & Status
 
-These pieces are implemented in the `ruvel` crate this application depends on.
+Ruvel is currently in active development (`0.1.x` preview).
 
-### Routing
-
-`Router` keeps one radix tree per HTTP method.
-
-- Verbs: `get`, `post`, `put`, `delete`, `patch`.
-- Path parameters use `{name}` segments. A match fills `Request::params`, and `Request::param("id")` reads one value.
-- The query string is stored raw on `Request::query`. Matching uses the path only.
-- `router.group(&["web", "auth"], ...)` attaches middleware group or alias names to the routes inside the closure. An unknown name panics when the route is registered.
-- A missing route returns `404 Not Found`. Global middleware still runs for that response.
-- A handler may return any type that implements `Responsable`, including `&'static str` and `String`.
-
-This application registers its routes through `with_routing` in `bootstrap/app.rs`. Register middleware before routes. Each route copies its pipeline at registration time, so routes added earlier keep an empty pipeline.
-
-### Middleware
-
-The pipeline is the Laravel onion. A layer receives the request and a `Next`. `next.run(request).await` continues inward, and the response walks back out.
-
-`ApplicationBuilder::with_middleware` configures the stacks:
-
-| Method | Effect |
-| --- | --- |
-| `append` | Add a layer at the end of the global stack. |
-| `prepend` | Add a layer at the front. The latest prepend runs first. |
-| `remove::<T>()` | Drop every global layer of type `T`. |
-| `replace::<T, _>(middleware)` | Swap every global layer of type `T`. |
-| `alias(name, middleware)` | Register one layer under a route name. |
-| `group(name, layers)` | Register an ordered list under a route name. |
-
-Global order is prepends, then the base stack, then appends. This skeleton does not install middleware yet. Add a `with_middleware` call in `bootstrap/app.rs` before `with_routing` when you add one.
-
-There is no `terminate` hook, and aliases do not take parameters.
-
-### Service container
-
-`ruvel::container::Container` is a type-keyed container. Resolving a service does not take a lock.
-
-| Method | Laravel equivalent | Behavior |
-| --- | --- | --- |
-| `bind` | `$container->bind()` | Store a factory. `make` calls it on every resolve. |
-| `singleton` | `$container->singleton()` | Store one instance and hand out clones of the `Arc`. |
-| `alias` | `$container->alias()` | Map a string name to a type. |
-| `make::<T>()` | `$container->make()` | Resolve `T`. |
-| `make_alias::<T>(name)` | resolve by alias | Resolve the type registered under `name`. |
-
-`ServiceProvider` has the same two phases as Laravel:
-
-1. `register` runs when the provider is added and should only bind services.
-2. `boot` runs when the application starts listening. It can resolve services and register routes.
-
-Attach one with `with_provider(...).await` on the builder. The call in `bootstrap/app.rs` is commented out, and `app/providers/` is empty. The container is not injected into route closures or controller methods.
-
-### Controllers
-
-`ruvel::http::Controller` is a resource controller. Each action takes a `Request` and returns `impl Responsable`. Actions you do not override answer `501 Not Implemented`.
-
-| Action | Typical route |
-| --- | --- |
-| `index` | `GET /resources` |
-| `create` | `GET /resources/create` |
-| `store` | `POST /resources` |
-| `show` | `GET /resources/{id}` |
-| `edit` | `GET /resources/{id}/edit` |
-| `update` | `PUT` or `PATCH /resources/{id}` |
-| `destroy` | `DELETE /resources/{id}` |
-
-`WelcomeController` overrides `index` and adds a `welcome` method. `/` calls `welcome`. You register every action on the router yourself. There is no `resource()` helper and no constructor injection.
-
-### Also available from the framework
-
-- **HTTP/1.1 server.** `listen(host, port)` boots providers, then accepts connections. Keep-alive and pipelined requests share a connection. Bodies are framed with `Content-Length`. A request larger than 64 KiB is dropped. A non-identity `Transfer-Encoding` closes the connection.
-- **`Responsable`.** Handlers can return `&'static str`, `String`, `Response`, `()`, `(Status, T)`, or `(u16, T)`. Strings become `200 OK` with `Content-Type: text/html; charset=utf-8`.
-- **Responses.** `Response::ok`, `created`, `no_content`, `bad_request`, `not_found`, and `not_implemented`, plus `.text()`, `.json()`, `.html()`, and `.header()`.
-- **Headers.** Lookup ignores the case of the name.
+- [x] High-performance HTTP/1.1 server engine (Keep-Alive, pipelining)
+- [x] Radix-tree router with parameter extraction (`{id}`) and route grouping
+- [x] Composable onion-style middleware pipeline (global, alias, group)
+- [x] Type-keyed Dependency Injection Container & Service Providers
+- [x] Resource controllers & flexible `Responsable` return types
+- [ ] Query string map parser & multipart body parser
+- [ ] Database layer & Active Record / Eloquent-style ORM
+- [ ] Validation & Form Request extractors
+- [ ] Session handling, cookies & authentication guards
+- [ ] CLI tooling (Artisan-inspired generator commands)
+- [ ] Template engine integration & view rendering
 
 ---
 
-## Still to be done
+## 📄 License
 
-In this application:
-
-- `app/providers/` is empty, and provider registration in `bootstrap/app.rs`.
-- No middleware is installed.
-- `routes/api.rs`, `config/`, `database/migrations/`, `database/seeders/`, and `resources/` are empty for the moment.
-
-In the framework these builder methods panic with `todo!`:
-
-- `with_events`
-- `with_commands`
-- `with_kernels`
-- `with_scheduler`
-
-These framework types are placeholders:
-
-- The Eloquent `Model` is an empty struct and returns an empty `200 OK`. There is no query builder, connection, migration runner, or seeder.
-- `Config` holds a name and a debug flag. Nothing loads `.env` files or config files.
-- The HTTP `Kernel` contract and the container contract trait are empty. The working container is the concrete `Container`.
-
-Not started in the framework:
-
-- Validation and form requests
-- Authentication, authorization, sessions, cookies, and CSRF
-- Views and templating
-- Named routes, route-model binding, and automatic resource registration
-- `HEAD`, `OPTIONS`, and custom fallback routes
-- Injecting container services into closures or controller methods
-- A parsed query map, multipart bodies, and file uploads
-- Redirect and cookie helpers
-- Chunked request bodies, TLS, and HTTP/2
-- An Artisan-style CLI, queues, mail, cache, and notifications
-
-The framework crate documents the same surface in its own README: [Stephan-MC/ruvel](https://github.com/Stephan-MC/ruvel).
+Ruvel is open-source software licensed under the MIT License.
