@@ -1,10 +1,10 @@
 [package]
-name = "ruvel_ui"
+name = "ruvel"
 version = "0.1.0"
 edition = "2024"
 
 [[bin]]
-name = "ruvel_ui"
+name = "app"
 path = "main.rs"
 
 [dependencies]

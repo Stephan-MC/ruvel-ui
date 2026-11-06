@@ -184,6 +184,15 @@ checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
 
 [[package]]
 name = "ruvel"
+version = "0.1.0"
+dependencies = [
+ "async-trait",
+ "ruvel 0.1.4",
+ "tokio",
+]
+
+[[package]]
+name = "ruvel"
 version = "0.1.4"
 dependencies = [
  "arc-swap",
@@ -191,15 +200,6 @@ dependencies = [
  "dashmap",
  "httparse",
  "matchit",
- "tokio",
-]
-
-[[package]]
-name = "ruvel_ui"
-version = "0.1.0"
-dependencies = [
- "async-trait",
- "ruvel",
  "tokio",
 ]
 
