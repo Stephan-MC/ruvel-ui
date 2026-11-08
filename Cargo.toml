@@ -1,14 +1,13 @@
 [package]
-name = "ruvel_ui"
+name = "ruvel"
 version = "0.1.0"
 edition = "2024"
 
 [[bin]]
-name = "ruvel_ui"
+name = "app"
 path = "main.rs"
 
 [dependencies]
-async-trait = "0.1.92"
 ruvel = "0.1.4"
 tokio = { version = "1.54.1", features = ["full"] }
 
