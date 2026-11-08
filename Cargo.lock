@@ -184,21 +184,23 @@ checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
 
 [[package]]
 name = "ruvel"
-version = "0.1.0"
-dependencies = [
- "ruvel 0.3.0",
- "tokio",
-]
-
-[[package]]
-name = "ruvel"
 version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "602473dd8878afce153f37fec7917d945285bcb68247448834bccad83890d8cd"
 dependencies = [
  "arc-swap",
  "async-trait",
  "dashmap",
  "httparse",
  "matchit",
+ "tokio",
+]
+
+[[package]]
+name = "ruvel-app"
+version = "0.3.0"
+dependencies = [
+ "ruvel",
  "tokio",
 ]
 
@@ -299,3 +301,7 @@ checksum = "ae137229bcbd6cdf0f7b80a31df61766145077ddf49416a728b02cb3921ff3fc"
 dependencies = [
  "windows-link",
 ]
+
+[[patch.unused]]
+name = "ruvel"
+version = "0.1.4"
