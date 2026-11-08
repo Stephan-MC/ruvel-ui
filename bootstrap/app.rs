@@ -1,5 +1,3 @@
-use std::env;
-
 use crate::routes::web;
 use ruvel::foundation::Application;
 
