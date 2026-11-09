@@ -1,6 +1,6 @@
 [package]
 name = "ruvel-app"
-version = "0.3.0"
+version = "0.3.0"  # x-release-please-version
 edition = "2024"
 
 [[bin]]
@@ -8,7 +8,7 @@ name = "app"
 path = "main.rs"
 
 [dependencies]
-ruvel = "0.3.0"
+ruvel = "0.4.0"
 tokio = { version = "1.54.1", features = ["full"] }
 
 [lints.clippy]
