@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.3.0...ruvel-app-v0.4.0) (2026-11-09)
+
+
+### Features
+
+* Created random commit to make release match backend ([dc2d11e](https://github.com/Stephan-MC/ruvel-ui/commit/dc2d11e10c95ec396188a55cb011ee2069c5fca0))
+
 ## [0.3.0](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.2.0...ruvel-app-v0.3.0) (2026-11-09)
 
 
