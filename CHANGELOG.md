@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.4.0...ruvel-app-v0.5.0) (2026-11-12)
+
+
+### Features
+
+* Bumped to version 0.5.0 of ruvel ([9bddc95](https://github.com/Stephan-MC/ruvel-ui/commit/9bddc95660a54e3b82225f0a2619272b1f8cb212))
+
 ## [0.4.0](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.3.0...ruvel-app-v0.4.0) (2026-11-09)
 
 
