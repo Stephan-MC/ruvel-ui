@@ -1,9 +1,10 @@
 {
-  "release-type": "rust",
-  "packages": {
-    ".": {
-      "package-name": "ruvel-app",
-      "extra-files": ["Cargo.toml"]
-    }
-  }
+	"release-type": "rust",
+	"packages": {
+		".": {
+			"package-name": "ruvel-app",
+			"release-type": "rust",
+			"extra-files": ["Cargo.toml"]
+		}
+	}
 }

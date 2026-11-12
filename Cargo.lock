@@ -902,8 +902,6 @@ checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
 [[package]]
 name = "ruvel"
 version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a35630349b0ec9a9635a315ce93f28439cb9605318825845b8b85fc55a4c4b7e"
 dependencies = [
  "arc-swap",
  "async-trait",
@@ -1617,7 +1615,3 @@ name = "zmij"
 version = "1.0.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b"
-
-[[patch.unused]]
-name = "ruvel"
-version = "0.4.0"
