@@ -901,9 +901,9 @@ checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
 
 [[package]]
 name = "ruvel"
-version = "0.5.0"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6839cd762fcbbf35c188351dc88dfcddbfd59760b1a9c9ce63bb84aac9b001d1"
+checksum = "a35630349b0ec9a9635a315ce93f28439cb9605318825845b8b85fc55a4c4b7e"
 dependencies = [
  "arc-swap",
  "async-trait",
