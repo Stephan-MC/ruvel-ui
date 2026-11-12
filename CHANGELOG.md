@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.6.0...ruvel-app-v0.6.1) (2026-11-12)
+
+
+### Bug Fixes
+
+* Updated release-please actions configs ([a58c42f](https://github.com/Stephan-MC/ruvel-ui/commit/a58c42fc56ef43e0fd920f2b6d9e12ea0f936147))
+
 ## [0.6.0](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.5.0...ruvel-app-v0.6.0) (2026-11-12)
 
 
