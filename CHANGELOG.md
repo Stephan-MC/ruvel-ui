@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.2](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.7.1...ruvel-app-v0.7.2) (2026-11-14)
+
+
+### Bug Fixes
+
+* Bumped to ruvel 0.7.2 ([f521a27](https://github.com/Stephan-MC/ruvel-ui/commit/f521a278a9bda8681273e6e8c3e63f4418936797))
+
 ## [0.7.1](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.7.0...ruvel-app-v0.7.1) (2026-11-13)
 
 
