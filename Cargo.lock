@@ -902,9 +902,9 @@ checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
 
 [[package]]
 name = "ruvel"
-version = "0.7.2"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f8e06855562de16637c363503f184cb0fbec6ffe3100f4c55fe48003805adc45"
+checksum = "249876a81dbbe15c98678606f26232c2cdab3b5cf07db3d341354b1b29b36ed8"
 dependencies = [
  "arc-swap",
  "httparse",
@@ -1619,4 +1619,4 @@ checksum = "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b"
 
 [[patch.unused]]
 name = "ruvel"
-version = "0.7.1"
+version = "0.7.2"
