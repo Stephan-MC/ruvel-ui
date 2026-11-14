@@ -918,7 +918,7 @@ dependencies = [
 
 [[package]]
 name = "ruvel-app"
-version = "0.7.2"
+version = "0.8.0"
 dependencies = [
  "ruvel",
  "serde",
