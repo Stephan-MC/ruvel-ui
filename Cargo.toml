@@ -1,6 +1,6 @@
 [package]
 name = "ruvel-app"
-version = "0.7.2"  # x-release-please-version
+version = "0.8.0"  # x-release-please-version
 edition = "2024"
 
 [[bin]]
