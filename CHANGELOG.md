@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.11.1...ruvel-app-v0.12.0) (2026-11-21)
+
+
+### Miscellaneous Chores
+
+* Bumped to version 0.12.0 ([fe80f2e](https://github.com/Stephan-MC/ruvel-ui/commit/fe80f2e5422771f7df25638bc4ee84cb8390782b))
+
 ## [0.11.1](https://github.com/Stephan-MC/ruvel-ui/compare/ruvel-app-v0.10.2...ruvel-app-v0.11.1) (2026-11-21)
 
 
